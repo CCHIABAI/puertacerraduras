@@ -25,14 +25,13 @@ public class PuertaTest
     @Test
     public void testCerradura()
     {
-        System.out.println("cerradura");
-        Integer indice = null;
-        Puerta instance = null;
-        Cerradura expResult = null;
-        Cerradura result = instance.cerradura(indice);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Puerta instance = new Puerta("1", "2", "3");
+        Cerradura cerradura0 = instance.cerradura(0);
+        Cerradura cerradura1 = instance.cerradura(1);
+        Cerradura cerradura2 = instance.cerradura(2);
+        
+        // Checkear que las 3 cerraduras fue4ron creadas -----------------
+        Boolean expResult = (cerradura0 != null) && (cerradura1 != null) && (cerradura2 != null);
     }
 
     /**
@@ -41,13 +40,17 @@ public class PuertaTest
     @Test
     public void testIsOpen()
     {
-        System.out.println("isOpen");
-        Puerta instance = null;
-        boolean expResult = false;
-        boolean result = instance.isOpen();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Puerta instance = new Puerta("1", "2", "3");
+        Cerradura cerradura0 = instance.cerradura(0);
+        Cerradura cerradura1 = instance.cerradura(1);
+        Cerradura cerradura2 = instance.cerradura(2);
+        
+        cerradura0.open("1");
+        assertFalse(instance.isOpen());
+        cerradura0.open("2");
+        assertFalse(instance.isOpen());
+        cerradura0.open("3");
+        assertTrue(instance.isOpen());        
     }
     
 }

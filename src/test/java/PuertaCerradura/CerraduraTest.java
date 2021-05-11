@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class CerraduraTest
 {
-    
+
     public CerraduraTest()
     {
     }
@@ -25,13 +25,10 @@ public class CerraduraTest
     @Test
     public void testGetPassword()
     {
-        System.out.println("getPassword");
-        Cerradura instance = null;
-        String expResult = "";
+        String password = "123";
+        Cerradura instance = new Cerradura(password);
         String result = instance.getPassword();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertEquals(password, result);
     }
 
     /**
@@ -40,12 +37,12 @@ public class CerraduraTest
     @Test
     public void testSetPassword()
     {
-        System.out.println("setPassword");
-        String password = "";
-        Cerradura instance = null;
+        String password = "123";
+        Cerradura instance = new Cerradura("321");
         instance.setPassword(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String result = instance.getPassword();
+        assertEquals(password, result);
+        assertNotEquals("321", result);
     }
 
     /**
@@ -54,13 +51,11 @@ public class CerraduraTest
     @Test
     public void testIsOpen()
     {
-        System.out.println("isOpen");
-        Cerradura instance = null;
-        Boolean expResult = null;
-        Boolean result = instance.isOpen();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        String password = "123";
+        Cerradura instance = new Cerradura(password);
+        assertFalse(instance.isOpen()); // Close
+        instance.open(password);
+        assertTrue(instance.isOpen()); 
     }
 
     /**
@@ -69,12 +64,11 @@ public class CerraduraTest
     @Test
     public void testOpen()
     {
-        System.out.println("open");
-        String password = "";
-        Cerradura instance = null;
+        String password = "123";
+        Cerradura instance = new Cerradura(password);
+        assertFalse(instance.isOpen()); // Close
         instance.open(password);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertTrue(instance.isOpen()); 
     }
 
     /**
@@ -83,11 +77,13 @@ public class CerraduraTest
     @Test
     public void testClose()
     {
-        System.out.println("close");
-        Cerradura instance = null;
+        String password = "123";
+        Cerradura instance = new Cerradura(password);
+        assertFalse(instance.isOpen()); // Close
+        instance.open(password);
+        assertTrue(instance.isOpen());  // Open
         instance.close();
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        assertFalse(instance.isOpen()); // Close again
     }
-    
+
 }
