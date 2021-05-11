@@ -38,18 +38,24 @@ public class Puerta
             return null;
         }
     }
-        
-    public boolean isOpen()
+
+    public Boolean isOpen()
     {
         Boolean open = true;
         for (Cerradura cerradura : cerraduras)
         {
             open = open && cerradura.isOpen();
         }
-        
-        return  open;
-    }
-    
 
+        return open;
+    }
+
+    public void close()
+    {
+        for (Cerradura cerradura : cerraduras)
+        {
+            cerradura.close();
+        }
+    }
 
 }

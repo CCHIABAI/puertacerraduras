@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
  */
 public class PuertaTest
 {
-    
+
     public PuertaTest()
     {
     }
@@ -29,7 +29,7 @@ public class PuertaTest
         Cerradura cerradura0 = instance.cerradura(0);
         Cerradura cerradura1 = instance.cerradura(1);
         Cerradura cerradura2 = instance.cerradura(2);
-        
+
         // Checkear que las 3 cerraduras fue4ron creadas -----------------
         Boolean expResult = (cerradura0 != null) && (cerradura1 != null) && (cerradura2 != null);
     }
@@ -44,13 +44,35 @@ public class PuertaTest
         Cerradura cerradura0 = instance.cerradura(0);
         Cerradura cerradura1 = instance.cerradura(1);
         Cerradura cerradura2 = instance.cerradura(2);
-        
+
         cerradura0.open("1");
         assertFalse(instance.isOpen());
         cerradura0.open("2");
         assertFalse(instance.isOpen());
         cerradura0.open("3");
-        assertTrue(instance.isOpen());        
+        assertTrue(instance.isOpen());
     }
-    
+
+    /**
+     * Test of close method, of class Puerta.
+     */
+    @Test
+    public void testClose()
+    {
+        Puerta instance = new Puerta("1", "2", "3");
+        Cerradura cerradura0 = instance.cerradura(0);
+        Cerradura cerradura1 = instance.cerradura(1);
+        Cerradura cerradura2 = instance.cerradura(2);
+
+        cerradura0.open("1");
+        assertFalse(instance.isOpen());
+        cerradura0.open("2");
+        assertFalse(instance.isOpen());
+        cerradura0.open("3");
+        assertTrue(instance.isOpen());
+
+        instance.close();
+        assertFalse(instance.isOpen());
+    }
+
 }
