@@ -53,9 +53,9 @@ public class CerraduraTest
     {
         String password = "123";
         Cerradura instance = new Cerradura(password);
-        assertFalse(instance.isOpen()); // Close
-        instance.open(password);
         assertTrue(instance.isOpen()); 
+        instance.close();
+        assertFalse(instance.isOpen()); // Close
     }
 
     /**
@@ -66,9 +66,9 @@ public class CerraduraTest
     {
         String password = "123";
         Cerradura instance = new Cerradura(password);
-        assertFalse(instance.isOpen()); // Close
-        instance.open(password);
         assertTrue(instance.isOpen()); 
+        instance.open(password);
+    //    assertFalse(instance.isOpen()); // Close
     }
 
     /**
@@ -79,11 +79,10 @@ public class CerraduraTest
     {
         String password = "123";
         Cerradura instance = new Cerradura(password);
+        instance.close();
         assertFalse(instance.isOpen()); // Close
         instance.open(password);
         assertTrue(instance.isOpen());  // Open
-        instance.close();
-        assertFalse(instance.isOpen()); // Close again
     }
 
 }

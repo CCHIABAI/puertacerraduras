@@ -32,6 +32,7 @@ public class PuertaTest
 
         // Checkear que las 3 cerraduras fue4ron creadas -----------------
         Boolean expResult = (cerradura0 != null) && (cerradura1 != null) && (cerradura2 != null);
+        
     }
 
     /**
@@ -73,6 +74,18 @@ public class PuertaTest
 
         instance.close();
         assertFalse(instance.isOpen());
+    }
+
+    /**
+     * Test of cerradurasSize method, of class Puerta.
+     */
+    @Test
+    public void testCerradurasSize()
+    {
+        Puerta instance = new Puerta("1", "2", "3");
+        Integer expResult = 3;
+        Integer result = instance.cerradurasSize();
+        assertEquals(expResult, result);
     }
 
 }

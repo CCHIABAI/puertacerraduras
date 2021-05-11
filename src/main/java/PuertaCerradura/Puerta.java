@@ -16,7 +16,7 @@ import java.util.List;
 public class Puerta
 {
 
-    List<Cerradura> cerraduras;
+    private List<Cerradura> cerraduras;
 
     public Puerta(String password0, String password1, String password2)
     {
@@ -56,6 +56,11 @@ public class Puerta
         {
             cerradura.close();
         }
+    }
+    
+    public Integer cerradurasSize()
+    {
+        return cerraduras.size();
     }
 
 }
